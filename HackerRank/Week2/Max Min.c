@@ -27,15 +27,17 @@ int compare(const void *x,const void *y)
 {
     return(*(int*)x-*(int*)y);
 }
-int maxMin(int k, int n, int* arr) {
-    qsort(arr,n,sizeof(int),compare);
+
+int maxMin(int k, int arr_count, int* arr) {
+    qsort(arr, arr_count,sizeof(int),compare);
     int min=arr[k-1]-arr[0];
-    for(int i=1;i<=n-k;i++){
+    for(int i=1;i<= arr_count-k;i++){
         int diff=arr[i+k-1]-arr[i];
         if(diff<min)
         min=diff;
     }
 return min;
+
 }
 
 int main()
